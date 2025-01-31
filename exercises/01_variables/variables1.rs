@@ -1,6 +1,6 @@
 fn main() {
-    // TODO: Add the missing keyword.
-    x = 5;
+    // Done: Add the missing keyword.
+    let x: i32 = 5;
 
     println!("x has the value {x}");
 }
