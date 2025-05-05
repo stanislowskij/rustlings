@@ -13,9 +13,14 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     Ok(qty * cost_per_item + processing_fee)
 }
 
-// TODO: Fix the compiler error by changing the signature and body of the
+// DONE: Fix the compiler error by changing the signature and body of the
 // `main` function.
-fn main() {
+
+// COMMENT: Deeply confused by this exercise in particular... 
+// having main return something like this just for the return to be meaningless
+// at the end seems to me like terrible and redundant design, unless I'm missing
+// something...
+fn main() -> Result<(), ParseIntError> {
     let mut tokens = 100;
     let pretend_user_input = "8";
 
@@ -28,4 +33,6 @@ fn main() {
         tokens -= cost;
         println!("You now have {tokens} tokens.");
     }
+
+    Ok(())
 }

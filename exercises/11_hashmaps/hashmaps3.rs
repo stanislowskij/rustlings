@@ -27,23 +27,27 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
         let team_1_score: u8 = split_iterator.next().unwrap().parse().unwrap();
         let team_2_score: u8 = split_iterator.next().unwrap().parse().unwrap();
 
-        // TODO: Populate the scores table with the extracted details.
+        // DONE: Populate the scores table with the extracted details.
         // Keep in mind that goals scored by team 1 will be the number of goals
         // conceded by team 2. Similarly, goals scored by team 2 will be the
         // number of goals conceded by team 1.
-        if !scores.contains_key(team_1_name) {
-            scores.insert(team_1_name, 
-                          TeamScores{goals_scored: team_1_score, goals_conceded: team_2_score});
-        } else {
-            scores.insert(team_1_name, scores.get())
-        }
 
-        if !scores.contains_key(team_2_name) {
-            scores.insert(team_2_name, 
-                          TeamScores{goals_scored: team_2_score, goals_conceded: team_1_score});
-        } else {
-            
-        }
+        // COMMENT: Super confused by the syntax here, with .entry().or_insert()
+        let team_1 = scores.entry(team_1_name)
+        .or_insert(TeamScores {
+            goals_scored: 0,
+            goals_conceded: 0
+        });
+        team_1.goals_scored += team_1_score;
+        team_1.goals_conceded += team_2_score;
+
+        let team_2 = scores.entry(team_2_name)
+        .or_insert(TeamScores {
+            goals_scored: 0,
+            goals_conceded: 0
+        });
+        team_2.goals_scored += team_2_score;
+        team_2.goals_conceded += team_1_score;
     }
 
     scores

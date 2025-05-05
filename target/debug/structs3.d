@@ -1,1 +1,1 @@
-/home/stani152/Documents/Rust/rustlings/target/debug/structs3: /home/stani152/Documents/Rust/rustlings/exercises/07_structs/structs3.rs
+/Users/jaydon/Documents/School/Rust/rustlings/target/debug/structs3: /Users/jaydon/Documents/School/Rust/rustlings/exercises/07_structs/structs3.rs

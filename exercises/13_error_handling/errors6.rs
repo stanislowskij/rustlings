@@ -24,8 +24,10 @@ impl ParsePosNonzeroError {
         Self::Creation(err)
     }
 
-    // TODO: Add another error conversion function here.
-    // fn from_parse_int(???) -> Self { ??? }
+    // DONE: Add another error conversion function here.
+    fn from_parse_int(err: ParseIntError) -> Self { 
+        Self::ParseInt(err)
+    }
 }
 
 #[derive(PartialEq, Debug)]
